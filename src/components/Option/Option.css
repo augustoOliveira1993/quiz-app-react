@@ -19,4 +19,21 @@
     transform: scale(0.9);
 }
 
+.correct {
+    background-color: #0bfc03;
+    font-weight: bold;
+}
 
+.error {
+    background-color: #fc0303;
+    font-weight: bold;
+}
+
+.wrong {
+    background-color: #3c0e70;
+    opacity: 0.5;
+}
+
+.hide {
+    display: none;
+}

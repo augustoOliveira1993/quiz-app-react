@@ -7,7 +7,8 @@ const initialState = {
     gameStage: STAGES[0],
     questions,
     currentQuestion: 0,
-    score: 0
+    score: 0,
+    answerSelected: false,
 }
 
 const quizReducer = (state, action) => {
@@ -32,9 +33,19 @@ const quizReducer = (state, action) => {
                 ...state,
                 currentQuestion: nextQuestion,
                 gameStage: endGame ? STAGES[2] : state.gameStage,
+                answerSelected: false,
             }
         case 'NEW_GAME':
             return initialState;
+        case 'CHECK_OPTION':
+            if(state.answerSelected) return state;
+            const isCorrect = action.payload.answer === action.payload.option;
+            const newScore = isCorrect ? state.score + 1 : state.score;
+            return {
+                ...state,
+                score: newScore,
+                answerSelected: action.payload.option,
+            }
         default:
             return state;
     }
