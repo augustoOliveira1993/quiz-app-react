@@ -1,14 +1,17 @@
-import {useState} from 'react'
 import './App.css'
-import {Index} from "./components/Welcome/Index.jsx";
+import {Welcome} from "./components/Welcome/Welcome.jsx";
+
+import {useContext} from "react";
+import {QuizContext} from "./contexts/Quiz.jsx";
+import {Questions} from "./components/Questions/Questions.jsx";
 
 function App() {
-    const [count, setCount] = useState(0)
-
+    const [quizState, dispatch] = useContext(QuizContext);
     return (
         <div className="App">
             <h1>Quiz de Programação</h1>
-            <Index/>
+            {quizState.gameStage === "start" && <Welcome />}
+            {quizState.gameStage === "playing" && <Questions />}
         </div>
     )
 }
