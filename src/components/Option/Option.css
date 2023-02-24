@@ -1,0 +1,22 @@
+.option {
+    background-color: #3c0e70;
+    border: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.4s;
+    margin-top: 1rem;
+}
+
+.option:hover {
+    opacity: 1;
+}
+#options-contatiner {
+    margin-bottom: 0;
+}
+.option:active {
+    transform: scale(0.9);
+}
+
+
